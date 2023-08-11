@@ -12,4 +12,8 @@
     <string name="phrases_morning">Frases para manhã</string>
 
     <string name="validation_mandatory_name">Informe seu nome.</string>
+    <string name="lets_starting">Vamos começar?</string>
+    <string name="whats_your_name">Qual seu nome?</string>
+
+    <string name="validation_name_exception">Informe seu nome</string>
 </resources>
