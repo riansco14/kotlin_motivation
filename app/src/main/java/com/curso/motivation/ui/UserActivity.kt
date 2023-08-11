@@ -2,6 +2,7 @@ package com.curso.motivation.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.curso.motivation.R
@@ -9,7 +10,7 @@ import com.curso.motivation.infra.SecurityPreferences
 import com.curso.motivation.databinding.ActivityUserBinding
 import com.curso.motivation.infra.MotivationConstants
 
-class UserActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var viewBinding: ActivityUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,7 @@ class UserActivity : AppCompatActivity() {
 
         setContentView(viewBinding.root)
 
-        viewBinding.buttonSave.setOnClickListener { handleSave() }
+        viewBinding.buttonSave.setOnClickListener(this)
     }
 
     private fun verifyUserName(){
@@ -55,6 +56,12 @@ class UserActivity : AppCompatActivity() {
             finish()
         }else{
             Toast.makeText(this, R.string.validation_name_exception, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onClick(view: View) {
+        if(view.id == R.id.button_save){
+            handleSave()
         }
     }
 
